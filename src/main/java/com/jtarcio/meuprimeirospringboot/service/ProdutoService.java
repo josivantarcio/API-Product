@@ -36,7 +36,7 @@ public class ProdutoService {
 
     public void deletarProduto(Long id) {
         if (!produtoRepository.existsById(id)) {
-            throw new RecursoNaoEncontradoException("Produto de id + " + id + " não encontrado");
+            throw new RecursoNaoEncontradoException("Produto de id " + id + " não encontrado");
         }
         produtoRepository.deleteById(id);
     }
