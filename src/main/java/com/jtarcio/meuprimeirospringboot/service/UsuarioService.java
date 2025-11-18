@@ -22,12 +22,13 @@ public class UsuarioService {
 
     public Usuario registrarUsuario(String name, String password) {
         String senhaCripto = passwordEncoder.encode(password);
+
         Usuario user = new Usuario(name, senhaCripto);
         return usuarioRepository.save(user);
     }
 
     public Usuario findUser(String name){
-        return usuarioRepository.findUsuarioByUser(name)
+        return usuarioRepository.findUsuarioByUsername(name)
                 .orElseThrow(() -> new RecursoNaoEncontradoException("Usuario " + name + " não localizado"));
     }
 }
